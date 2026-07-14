@@ -1,4 +1,5 @@
 PDA Simulator — a^n b^n
+
 A small, dependency-free Python project that simulates a pushdown automaton (PDA) for recognizing strings in the language:
 L = {a^n b^n | n >= 0}
 For example, aabb is accepted, while aab, abb, and aba are rejected. The empty string is accepted because it represents the case where n = 0.
