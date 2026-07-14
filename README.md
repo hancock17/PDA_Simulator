@@ -1,50 +1,30 @@
-# PDA Simulator — `a^n b^n`
+PDA Simulator — a^n b^n
+A small, dependency-free Python project that simulates a pushdown automaton (PDA) for recognizing strings in the language:
+L = {a^n b^n | n >= 0}
+For example, aabb is accepted, while aab, abb, and aba are rejected. The empty string is accepted because it represents the case where n = 0.
 
-Küçük ve bağımlılıksız bir Python projesi. Bir pushdown automaton (PDA)
-kullanarak `L = {a^n b^n | n >= 0}` dilindeki kelimeleri tanır.
+Requirements
+Python 3.9 or later
+No external dependencies
 
-Örneğin `aabb` kabul edilir; `aab`, `abb` ve `aba` reddedilir. Boş dize de
-tanımlı dilde (`n = 0`) olduğu için kabul edilir.
-
-## Gereksinimler
-
-- Python 3.9 veya üzeri
-- Harici paket gerektirmez
-
-## Kullanım
-
-Tek bir dizeyi denemek için:
-
-```bash
+Usage
+Test a single string:
 python pda.py aabb
-```
 
-Örnekleri çalıştırmak için:
-
-```bash
+Run the built-in examples:
 python pda.py
-```
-
-Testleri çalıştırmak için:
-
-```bash
+Run the automated tests:
 python -m unittest -v
-```
 
-## Nasıl çalışır?
+How It Works
+The automaton pushes one marker onto the stack for every a.
+It pops one marker from the stack for every b.
+Once a b has been read, no further a characters are allowed.
+The string is accepted only if the stack is empty at the end.
 
-- Her `a` için yığına bir işaretçi eklenir.
-- Her `b` için yığından bir işaretçi çıkarılır.
-- İlk `b` sonrasında `a` görülürse veya eşleşmeyen sembol kalırsa girdi reddedilir.
+Project Structure
+pda.py       PDA implementation and command-line interface
+test_pda.py  Automated tests
 
-## Proje yapısı
-
-```text
-pda.py       PDA uygulaması ve komut satırı arayüzü
-test_pda.py  Otomatik testler
-```
-
-## Lisans
-
-Bu proje eğitim amaçlıdır. GitHub'da paylaşmadan önce tercih ettiğiniz lisansı
-ekleyin (örneğin MIT License).
+License
+This project is intended for educational use. Consider adding an MIT License before publishing it on GitHub.
